@@ -25,12 +25,10 @@ stage('CodeScan'){
             }
         }
         stage('pushImage'){
-
-        }
-            steps{
+           steps{
                 sh'docker push 976193257800.dkr.ecr.us-east-1.amazonaws.com/jenkins-ci:latest'
-
-            }
+ }
+        }
 }
 }
               
