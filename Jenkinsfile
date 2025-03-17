@@ -27,13 +27,13 @@ stage('CodeScan'){
         }
         stage('dockerImageTag'){
             steps{
-                sh "docker tag jenkins-ci:latest $IMAGE_ECR_REPO:latest"
+                sh "docker tag jenkins-ci:latest $image_ecr_repo:latest"
                 sh "docker tag imageversion  $ECR_REPO:v1.BUILD_NUMBER"
             }
         }
         stage('pushImage'){
            steps{
-                sh"docker push  $IMAGE_ECR_REPO:latest"
+                sh"docker push  $image_ecr_repo:latest"
                 sh "docker push IMAGE_ECR_REPO:v1.$BUILD_NUMBER "
  }
         }
