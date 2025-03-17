@@ -1,10 +1,7 @@
-pipelin{
+pipeline{
+stages{
 
-}
-    agent any 
-    stages{
-
-    }        stage('CodeScan'){
+           stage('CodeScan'){
             steps{
                 sh 'trivy fs  . -o result.html'
                 sh 'cat result.html'
@@ -24,7 +21,7 @@ pipelin{
         }
         stage('dockerImageTag'){
             steps{
-                sh 'docker tag jenkins-ci:latest\ 976193257800.dkr.ecr.us-east-1.amazonaws.com/jenkins-ci:latest'
+                sh 'docker tag jenkins-ci:latest 976193257800.dkr.ecr.us-east-1.amazonaws.com/jenkins-ci:latest'
             }
         }
         stage('pushImage'){
@@ -34,7 +31,8 @@ pipelin{
                 sh'docker push 976193257800.dkr.ecr.us-east-1.amazonaws.com/jenkins-ci:latest'
 
             }
-            
+}
+}
               
             
                 
